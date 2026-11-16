@@ -6,7 +6,11 @@ export const dynamic = "force-dynamic";
 
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
   const { user } = await requireAdmin();
-  const { count } = await serviceClient().from("enquiries").select("id", { count: "exact", head: true }).eq("handled", false);
+  const { count } = await serviceClient()
+    .from("enquiries")
+    .select("id", { count: "exact", head: true })
+    .eq("handled", false)
+    .then((r) => r, () => ({ count: 0 }));
   return (
     <>
       <header className="admin-top">

@@ -11,6 +11,8 @@ export async function requireAdmin() {
   const { data } = await supabase.auth.getUser();
   if (!data.user) redirect("/admin/login");
   const { data: isAdmin, error } = await supabase.rpc("is_admin");
+  if (error && (error.code === "PGRST202" || /could not find the function|does not exist|schema cache/i.test(error.message)))
+    redirect("/admin/login?error=no-database");
   if (error || isAdmin !== true) {
     await supabase.auth.signOut();
     redirect("/admin/login?error=not-authorised");

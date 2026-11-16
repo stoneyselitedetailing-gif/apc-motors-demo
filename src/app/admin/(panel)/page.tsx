@@ -1,11 +1,19 @@
 import Link from "next/link";
-import { listAllCars } from "@/lib/cars";
+import { databaseProblem, listAllCars } from "@/lib/cars";
 import { carTitle, priceText, STATUS_LABEL, type CarStatus } from "@/lib/car-types";
 import { setStatus } from "./actions";
 
 const STATUSES: CarStatus[] = ["available", "under_offer", "sold", "hidden"];
 
 export default async function AdminStock() {
+  const problem = await databaseProblem();
+  if (problem)
+    return (
+      <div className="admin-empty">
+        <h2>Almost there</h2>
+        <p>{problem}</p>
+      </div>
+    );
   const cars = await listAllCars();
   const live = cars.filter((c) => c.status === "available" || c.status === "under_offer").length;
   return (
