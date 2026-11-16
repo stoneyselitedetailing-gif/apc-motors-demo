@@ -41,7 +41,7 @@ export default async function Home() {
         <HeroSlideshow slides={slides} />
         <div className="wrap hero2-inner">
           <p className="eyebrow hero-eyebrow">
-            <span className="pip" /> {business.stockBrand} · Perth WA
+            <span className="pip" /> {business.stockBrand}<span className="where"> · Perth WA</span>
           </p>
           <h1 className="display">
             We find it.

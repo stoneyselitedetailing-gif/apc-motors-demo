@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { business } from "@/config/business";
 import { PhoneIcon } from "@/components/Icons";
+import { MobileMenu } from "@/components/MobileMenu";
 
 export function Mark() {
   return (
@@ -37,6 +38,7 @@ export function SiteHeader() {
           <PhoneIcon />
           {business.mobile}
         </a>
+        <MobileMenu phone={business.mobile} phoneTel={business.mobileTel} />
       </div>
     </header>
   );
