@@ -99,6 +99,18 @@ values (
 )
 on conflict (slug) do nothing;
 
+insert into public.cars (slug, status, featured, make, model, variant, body, transmission, fuel, engine, colour, interior, description, features, photos, created_at)
+values (
+  'ford-falcon-xw-gt', 'available', true, 'Ford', 'Falcon', 'XW GT', 'Sedan', 'Manual', 'Petrol', '351 V8',
+  'Dark green with gold GT stripes', 'Black vinyl bucket seats',
+  'A genuine Australian muscle car icon. This XW Falcon GT is powered by the 351 High Performance V8 with a four-speed manual, and presents beautifully inside and out, from the bonnet scoop and gold GT stripes to the red-line tyres. It comes with its original owner''s manual and maintenance schedule. Call for full history and an inspection time.',
+  array['351 High Performance V8', '4-speed manual', 'Bonnet scoop', 'Gold GT side stripes', 'Red-line tyres',
+        'Woodgrain dash and steering wheel', 'Original owner''s manual and service book'],
+  array(select format('/images/xw-gt/%s.webp', lpad(n::text, 2, '0')) from generate_series(1, 27) n),
+  now() + interval '1 second'
+)
+on conflict (slug) do nothing;
+
 -- Then add the owner's sign-in email (lower case), after creating the user
 -- in Supabase → Authentication → Users:
 -- insert into public.admin_users (email) values ('owner@example.com');

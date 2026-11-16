@@ -305,7 +305,8 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
 .gallery .prev{left:12px}
 .gallery .next{right:12px}
 .gallery .main .count{position:absolute;right:12px;bottom:12px;background:rgba(13,13,13,.8);color:#fff;border-radius:999px;padding:5px 10px;font-size:13px;font-weight:600}
-.gallery .thumbs{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
+.gallery .thumbs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
+.gallery .thumbs button{flex:0 0 96px;scroll-snap-align:start}
 .car h1{font-family:var(--display);font-weight:900;font-stretch:80%;text-transform:uppercase;font-size:44px;line-height:.92}
 .badge-sold{background:#b3261e!important;color:#fff!important}
 .car-detail{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px;align-items:start}
@@ -405,3 +406,5 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
 .enq-msg{background:var(--paper);border-radius:10px;padding:12px 14px;white-space:pre-line}
 .enq-list form{justify-self:start}
 .enq-sub{margin:32px 0 12px;font-size:18px;color:var(--ink-3)}
+
+.stock>*{min-width:0}
