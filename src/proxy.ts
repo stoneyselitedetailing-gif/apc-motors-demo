@@ -7,7 +7,7 @@ import { cleanKey, cleanSupabaseUrl } from "@/lib/supabase/url";
 export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request });
   const url = cleanSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL);
-  const key = cleanKey(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+  const key = cleanKey(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY);
   if (!url || !key) return response;
   const supabase = createServerClient(url, key, {
     cookies: {

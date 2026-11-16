@@ -4,8 +4,8 @@ import { cleanKey, cleanSupabaseUrl } from "@/lib/supabase/url";
 // Server-side settings. Secrets are only read here and never sent to the browser.
 export const env = {
   supabaseUrl: cleanSupabaseUrl(process.env.NEXT_PUBLIC_SUPABASE_URL),
-  supabaseAnonKey: cleanKey(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
-  supabaseServiceKey: cleanKey(process.env.SUPABASE_SERVICE_ROLE_KEY),
+  supabaseAnonKey: cleanKey(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
+  supabaseServiceKey: cleanKey(process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY),
 };
 
 // Until Supabase is connected the site runs in demo mode: the stock list
@@ -40,7 +40,7 @@ export function supabaseSettingsStatus(): { name: string; ok: boolean; problem?:
 
   return [
     { name: "NEXT_PUBLIC_SUPABASE_URL", ok: !urlProblem, problem: urlProblem },
-    { name: "NEXT_PUBLIC_SUPABASE_ANON_KEY", ok: !anonProblem, problem: anonProblem },
-    { name: "SUPABASE_SERVICE_ROLE_KEY", ok: !secretProblem, problem: secretProblem },
+    { name: "NEXT_PUBLIC_SUPABASE_ANON_KEY (or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY)", ok: !anonProblem, problem: anonProblem },
+    { name: "SUPABASE_SERVICE_ROLE_KEY (or SUPABASE_SECRET_KEY)", ok: !secretProblem, problem: secretProblem },
   ];
 }
