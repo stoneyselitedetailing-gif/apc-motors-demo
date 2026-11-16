@@ -416,3 +416,6 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
 .setting-list .bad .dot{background:#b3261e}
 .setting-list code{font-size:13px;font-weight:700;word-break:break-all}
 .setting-list small{display:block;color:var(--ink-2);font-size:13px;margin-top:2px}
+.deploy-info{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin-top:14px;font-size:13px;padding:12px;border-radius:10px;background:var(--paper)}
+.deploy-info dt{color:var(--ink-3)}
+.deploy-info dd{font-weight:600;word-break:break-all}

@@ -14,6 +14,20 @@ export function isSupabaseConfigured(): boolean {
   return Boolean(env.supabaseUrl && env.supabaseAnonKey && env.supabaseServiceKey);
 }
 
+/** Facts about this deployment for the setup page. Names only, never values. */
+export function deploymentInfo() {
+  const names = Object.keys(process.env)
+    .filter((n) => /supa/i.test(n))
+    .sort();
+  return {
+    environment: process.env.VERCEL_ENV ?? "not on Vercel",
+    commit: process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? "unknown",
+    commitMessage: process.env.VERCEL_GIT_COMMIT_MESSAGE?.split("\n")[0] ?? "",
+    project: process.env.VERCEL_PROJECT_PRODUCTION_URL ?? "unknown",
+    supabaseNames: names,
+  };
+}
+
 /** Which Supabase settings this deployment can see, with a plain-English problem for each. Never includes values. */
 export function supabaseSettingsStatus(): { name: string; ok: boolean; problem?: string }[] {
   const raw = (n: string) => cleanKey(process.env[n]);
