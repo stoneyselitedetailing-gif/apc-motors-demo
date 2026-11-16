@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>APC Motor Group</title>
+<meta name="description" content="APC Motor Group: a family-run vehicle locator and wholesaler in Perth WA. We find your next car, buy your current one and arrange finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,700..900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#ffe600; --brand-ink:#141414; --brand-deep:#e0c900;
+  --ink:#121212; --ink-2:#4a4a48; --ink-3:#77766f;
+  --paper:#f6f5f0; --card:#ffffff; --line:#e3e1d8;
+  --night:#0d0d0d; --night-2:#1a1a19; --night-line:#2b2b29; --night-ink:#f4f3ee; --night-ink-2:#a9a8a1;
+  --ok:#1f7a3f;
+  --radius:14px;
+  --display:"Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#f2f1ec; --ink-2:#c2c1b9; --ink-3:#8f8e87;
+    --paper:#111110; --card:#1a1a19; --line:#2c2c2a; --ok:#5fcf86;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#f2f1ec; --ink-2:#c2c1b9; --ink-3:#8f8e87;
+  --paper:#111110; --card:#1a1a19; --line:#2c2c2a; --ok:#5fcf86;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body);overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.display{font-family:var(--display);font-stretch:78%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.92}
+.eyebrow{font:700 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:700 15px/1 var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease, background .15s ease, color .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-yellow{background:var(--brand);color:var(--brand-ink)}
+.btn-yellow:hover{background:#fff04d}
+.btn-ghost{border-color:rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+.btn-dark{background:var(--brand-ink);color:#fff}
+
+/* demo strip */
+.demo-strip{background:var(--brand);color:var(--brand-ink);font:600 13px/1.4 var(--body);text-align:center;padding:8px 16px}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(13,13,13,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--night-line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.mark .big{font-family:var(--display);font-weight:900;font-style:italic;font-stretch:100%;font-size:34px;line-height:1;color:var(--brand);letter-spacing:-.02em}
+.mark .small{font:700 11px/1.15 var(--body);letter-spacing:.16em;text-transform:uppercase;color:#fff}
+nav.links{display:flex;gap:28px}
+nav.links a{color:var(--night-ink-2);text-decoration:none;font-weight:600;font-size:14px}
+nav.links a:hover{color:var(--brand)}
+.top .call{min-height:44px;padding:0 18px;font-size:14px}
+@media (max-width:900px){nav.links{display:none}}
+
+/* hero */
+.hero{background:var(--night);color:var(--night-ink);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(900px 500px at 85% 10%, rgba(255,230,0,.16), transparent 60%),
+  repeating-linear-gradient(115deg, transparent 0 46px, rgba(255,255,255,.025) 46px 47px)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:88px 0 96px}
+.hero h1{font-size:clamp(44px,7.4vw,104px);color:#fff}
+@media (min-width:600px){.hero h1 em{white-space:nowrap}}
+.hero .wrap>*{min-width:0}
+.hero h1 em{font-style:italic;color:var(--brand);font-stretch:100%}
+.hero .lede{margin-top:26px;max-width:560px;font-size:clamp(17px,1.8vw,20px);color:var(--night-ink-2)}
+.hero .lede b{color:#fff;font-weight:600}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:40px;font-size:14px;color:var(--night-ink-2)}
+.trust span{display:flex;align-items:center;gap:8px}
+.trust span::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--brand);transform:rotate(45deg)}
+.hero-card{background:var(--night-2);border:1px solid var(--night-line);border-radius:22px;padding:30px;position:relative}
+.hero-card .stamp{position:absolute;top:-22px;right:24px;background:var(--brand);color:var(--brand-ink);border-radius:999px;padding:10px 16px;font:800 13px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.hero-card h2{font-size:30px;color:#fff}
+.hero-card p{color:var(--night-ink-2);font-size:15px;margin-top:8px}
+.quick{margin-top:22px;display:grid;gap:12px}
+.quick label{display:grid;gap:6px;font:600 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--night-ink-2)}
+.quick input,.quick select{height:50px;border-radius:10px;border:1px solid var(--night-line);background:#0f0f0e;color:#fff;font:500 16px var(--body);padding:0 14px}
+.quick input:focus,.quick select:focus{outline:2px solid var(--brand);outline-offset:1px}
+.quick .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.quick input,.quick select{min-width:0;width:100%}
+.quick .btn{width:100%;margin-top:6px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr);padding:56px 0 72px}}
+
+/* marquee */
+.ticker{background:var(--brand);color:var(--brand-ink);overflow:hidden;border-block:2px solid var(--brand-ink)}
+.ticker .track{display:flex;gap:44px;width:max-content;padding:16px 0;animation:tick 32s linear infinite}
+.ticker span{font-family:var(--display);font-weight:900;font-style:italic;font-stretch:90%;font-size:24px;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:44px}
+.ticker span::after{content:"";width:12px;height:12px;background:var(--brand-ink);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .track{animation:none}}
+
+section{padding:104px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+.head h2{font-size:clamp(42px,6vw,76px);max-width:760px}
+.head p{max-width:400px;color:var(--ink-2)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;transition:transform .2s ease, border-color .2s ease}
+.svc:hover{transform:translateY(-4px);border-color:var(--ink)}
+.svc .num{font-family:var(--display);font-weight:900;font-size:15px;color:var(--ink-3)}
+.svc .ico{width:56px;height:56px;border-radius:14px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center}
+.svc h3{font-family:var(--display);font-weight:900;font-stretch:80%;text-transform:uppercase;font-size:34px;line-height:.95}
+.svc p{color:var(--ink-2)}
+.svc ul{list-style:none;display:grid;gap:8px;margin-top:4px}
+.svc li{display:flex;gap:10px;font-size:15px}
+.svc li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
+.svc .more{margin-top:auto;padding-top:10px;font-weight:700;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.svc .more:hover{text-decoration:underline;text-decoration-color:var(--brand);text-decoration-thickness:3px;text-underline-offset:4px}
+@media (max-width:980px){.services{grid-template-columns:1fr}}
+
+/* process */
+.dark{background:var(--night);color:var(--night-ink)}
+.dark .eyebrow{color:var(--night-ink-2)}
+.dark .head p{color:var(--night-ink-2)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--night-line)}
+.step{padding:32px 26px 8px 0;border-right:1px solid var(--night-line);margin-right:26px}
+.step:last-child{border-right:0;margin-right:0}
+.step .n{font-family:var(--display);font-weight:900;font-style:italic;font-size:64px;line-height:1;color:var(--brand)}
+.step h3{margin-top:18px;font-size:19px;color:#fff}
+.step p{margin-top:8px;color:var(--night-ink-2);font-size:15px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0;margin-right:0}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.step{border-right:0;margin-right:0;border-bottom:1px solid var(--night-line);padding:26px 0}}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.why div{background:var(--card);padding:30px}
+.why h3{font-size:19px;display:flex;gap:12px;align-items:center}
+.why h3::before{content:"";width:10px;height:10px;background:var(--brand);outline:2px solid var(--ink);transform:rotate(45deg);flex:none}
+@media (max-width:900px){.why{grid-template-columns:1fr 1fr}}@media (max-width:560px){.why{grid-template-columns:1fr}}
+.why p{margin-top:10px;color:var(--ink-2);font-size:15px}
+
+/* about */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.badge-big{background:var(--brand);color:var(--brand-ink);border-radius:24px;padding:44px;position:relative;overflow:hidden;aspect-ratio:1/1;display:flex;flex-direction:column;justify-content:space-between}
+.badge-big::after{content:"";position:absolute;right:-60px;bottom:-60px;width:280px;height:280px;border:40px solid rgba(0,0,0,.08);border-radius:50%}
+.badge-big .yrs{font-family:var(--display);font-weight:900;font-stretch:75%;font-size:clamp(130px,18vw,220px);line-height:.8;letter-spacing:-.04em}
+.badge-big .lbl{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:26px;line-height:1;font-stretch:85%}
+.badge-big .sub{font-weight:600;font-size:15px;max-width:280px;position:relative;z-index:1}
+.about h2{font-size:clamp(40px,5.4vw,68px)}
+.about p{margin-top:18px;color:var(--ink-2);font-size:17px}
+.creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.creds span{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px}
+@media (max-width:900px){.about{grid-template-columns:1fr}.badge-big{aspect-ratio:auto;min-height:340px}}
+
+/* enquiry */
+.enquiry{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+.enquiry .side h2{font-size:clamp(40px,5vw,64px)}
+.enquiry .side p{color:var(--ink-2);margin-top:16px}
+.contact-list{margin-top:30px;display:grid;gap:14px}
+.contact-list a,.contact-list div{display:flex;gap:14px;align-items:center;text-decoration:none;font-weight:600}
+.contact-list .i{width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--brand);display:grid;place-items:center;flex:none}
+.contact-list small{display:block;color:var(--ink-3);font-weight:500;font-size:13px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:10px;box-shadow:0 30px 60px -40px rgba(0,0,0,.35)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--paper);border-radius:14px;padding:6px}
+.tabs button{border:0;background:transparent;color:var(--ink-2);font:700 14px var(--body);min-height:46px;border-radius:10px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--brand-ink);color:var(--brand)}
+:root[data-theme="dark"] .tabs button[aria-selected="true"]{background:var(--brand);color:var(--brand-ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{background:var(--brand);color:var(--brand-ink)}}
+form.f{padding:24px 20px 20px;display:none;gap:16px}
+form.f.on{display:grid}
+.f .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.f .grid.two{grid-template-columns:1fr 1fr}
+.f label{display:grid;gap:7px;font:600 13px/1.2 var(--body);color:var(--ink-2)}
+.f input,.f select,.f textarea{width:100%;min-height:50px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:500 16px var(--body);padding:12px 14px}
+.f textarea{min-height:96px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--ink);outline-offset:1px;border-color:transparent}
+.f .intro{font-size:15px;color:var(--ink-2)}
+.f .btn{justify-self:start}
+.f .note{font-size:13px;color:var(--ink-3)}
+.sent{display:none;padding:40px 24px;text-align:center}
+.sent.on{display:block}
+.sent .tick{width:64px;height:64px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;margin:0 auto 18px}
+.sent h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:34px;font-stretch:80%}
+.sent p{color:var(--ink-2);margin-top:8px}
+@media (max-width:980px){.enquiry{grid-template-columns:1fr}}
+@media (max-width:640px){.f .grid,.f .grid.two{grid-template-columns:1fr 1fr}.f .grid .full{grid-column:1/-1}.tabs button{font-size:13px}}
+
+/* finance band */
+.fin{background:var(--brand);color:var(--brand-ink);border-radius:26px;padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.fin h2{font-size:clamp(40px,5.6vw,72px)}
+.fin p{margin-top:14px;font-weight:500;font-size:17px;max-width:520px}
+.fin .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fin .stat{background:var(--brand-ink);color:#fff;border-radius:16px;padding:22px 18px}
+.fin .stat b{display:block;font-family:var(--display);font-weight:900;font-stretch:80%;font-size:clamp(28px,3vw,38px);line-height:1;color:var(--brand)}
+.fin .stat span{display:block;margin-top:8px;font-size:13px;color:#cfcfc8}
+@media (max-width:900px){.fin{grid-template-columns:1fr;padding:36px 24px}}
+@media (max-width:480px){.fin .stats{grid-template-columns:1fr}}
+
+/* area */
+.area{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.area span{padding:8px 14px;border-radius:999px;background:var(--night-2);border:1px solid var(--night-line);font-size:14px;color:var(--night-ink)}
+
+/* footer */
+footer{background:var(--night);color:var(--night-ink-2);padding:72px 0 120px;border-top:1px solid var(--night-line)}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer h4{color:#fff;font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+footer a{text-decoration:none;display:block;padding:4px 0}
+footer a:hover{color:var(--brand)}
+footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+@media (max-width:800px){footer .cols{grid-template-columns:1fr}}
+
+/* mobile action bar */
+.mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;grid-template-columns:1fr 1fr;gap:8px;padding:8px;border-radius:18px;background:rgba(13,13,13,.94);backdrop-filter:blur(8px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.mbar .btn{min-height:50px;padding:0 12px}
+@media (max-width:760px){.mbar{display:grid}.top .call{display:none}}
+
+.reveal{transition:transform .6s ease}
+.reveal.pre{transform:translateY(18px)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div class="demo-strip">Website concept for APC Motor Group: a preview, not the live site. Forms are not connected yet.</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="APC Motor Group home">
+      <span class="big">APC</span>
+      <span class="small">Motor<br>Group</span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#finance">Finance</a>
+      <a href="#enquire">Contact</a>
+    </nav>
+    <a class="btn btn-yellow call" href="tel:0438908560">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      0438 908 560
+    </a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--brand)">Vehicle locator &amp; wholesaler · Perth WA</p>
+      <h1 class="display" style="margin-top:18px">We find it.<br>We sell it.<br><em>We finance it.</em></h1>
+      <p class="lede">Looking for your next car, or ready to move on your current one? <b>APC Motor Group</b> does the legwork for you — any make, any model, new or used. <b>Hassle free, and cost free to you.</b></p>
+      <div class="ctas">
+        <a class="btn btn-yellow" href="#enquire" data-tab="find">Find me a car</a>
+        <a class="btn btn-ghost" href="#enquire" data-tab="sell">Sell my car</a>
+      </div>
+      <div class="trust">
+        <span>31+ years in the trade</span>
+        <span>Family run</span>
+        <span>MTA WA member</span>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <div class="stamp">Free service</div>
+      <h2 class="display">What are you after?</h2>
+      <p>Tell us the car you want. We'll search our network and come back to you with options.</p>
+      <form class="quick" data-demo>
+        <div class="row">
+          <label>Make<input name="make" placeholder="e.g. Toyota" autocomplete="off"></label>
+          <label>Model<input name="model" placeholder="e.g. LandCruiser" autocomplete="off"></label>
+        </div>
+        <div class="row">
+          <label>Budget<select name="budget"><option>Under $20k</option><option>$20k – $40k</option><option selected>$40k – $70k</option><option>$70k – $100k</option><option>$100k+</option></select></label>
+          <label>Finance?<select name="fin"><option>Not sure</option><option>Yes</option><option>No</option></select></label>
+        </div>
+        <a class="btn btn-yellow" href="#enquire" data-tab="find" data-carry>Start my search →</a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>Car locating</span><span>We buy your car</span><span>No-deposit finance</span><span>Pick-up Joondalup to Mandurah</span><span>Trade-ins welcome</span><span>Any make · any model</span>
+    <span>Car locating</span><span>We buy your car</span><span>No-deposit finance</span><span>Pick-up Joondalup to Mandurah</span><span>Trade-ins welcome</span><span>Any make · any model</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <p class="eyebrow">What we do</p>
+        <h2 class="display" style="margin-top:14px">Three ways we take the hassle out of cars</h2>
+      </div>
+      <p>One phone call covers buying, selling and paying for it. We've been doing it for over three decades.</p>
+    </div>
+    <div class="services">
+      <article class="svc reveal">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+          <span class="num">01</span>
+        </div>
+        <h3>Car locator</h3>
+        <p>Tell us the year, make, model and budget. We search our dealer and wholesale network to find it for you, new or used.</p>
+        <ul><li>Any make or model</li><li>Manual, auto, diesel, petrol or gas</li><li>Finance arranged if you need it</li></ul>
+        <a class="more" href="#enquire" data-tab="find">Find my car →</a>
+      </article>
+      <article class="svc reveal">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <span class="num">02</span>
+        </div>
+        <h3>Sell your car</h3>
+        <p>Selling online can take months. We can sell your car in days by putting it in front of a range of buyers to get you the best price.</p>
+        <ul><li>We pick up from home or work</li><li>Sold as-is: no touch-ups needed</li><li>Transfers &amp; payout quotes handled</li></ul>
+        <a class="more" href="#enquire" data-tab="sell">Value my car →</a>
+      </article>
+      <article class="svc reveal">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+          <span class="num">03</span>
+        </div>
+        <h3>Vehicle finance</h3>
+        <p>Fast, no-deposit finance with most loans approved the same day. Fixed rates make budgeting easy.</p>
+        <ul><li>No deposit required</li><li>Monthly or fortnightly repayments</li><li>Loan terms up to 7 years</li></ul>
+        <a class="more" href="#enquire" data-tab="finance">Get pre-approved →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="how">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2 class="display" style="margin-top:14px;color:#fff">From enquiry to <span style="color:var(--brand);font-style:italic">keys</span> in four steps</h2>
+      </div>
+      <p>No time-wasting with yard visits or online tyre-kickers. We do the running around.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Tell us what you need</h3><p>Fill in a quick form or give Angelo a call. Two minutes, tops.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>We do the legwork</h3><p>We search our network, contact buyers and negotiate the deal for you.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>Finance, sorted</h3><p>Need a loan? We arrange no-deposit finance, often approved the same day.</p></div>
+      <div class="step reveal"><div class="n">4</div><h3>Drive away</h3><p>We handle the paperwork, transfers and pick-ups. You just collect the keys.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <p class="eyebrow">Why use APC?</p>
+        <h2 class="display" style="margin-top:14px">The easy way to buy or sell</h2>
+      </div>
+    </div>
+    <div class="why reveal">
+      <div><h3>Sold in days, not months</h3><p>Private sales drag on. We can move your car in a matter of days.</p></div>
+      <div><h3>We come to you</h3><p>From Joondalup to Mandurah, we collect from your home or workplace.</p></div>
+      <div><h3>The best price</h3><p>We contact a range of buyers to make sure you get the best deal going.</p></div>
+      <div><h3>Taken as-is</h3><p>No need to spend money fixing dents or scratches before you sell.</p></div>
+      <div><h3>Paperwork handled</h3><p>Vehicle transfers and finance payout quotes, all organised for you.</p></div>
+      <div><h3>Cost free to you</h3><p>Our locating service is hassle free and costs you nothing.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:0">
+  <div class="wrap about">
+    <div class="badge-big reveal">
+      <div class="yrs">31+</div>
+      <div>
+        <div class="lbl">Years in the<br>motor trade</div>
+        <p class="sub" style="margin-top:14px">Family run, and still answering the phone ourselves.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">About us</p>
+      <h2 class="display" style="margin-top:14px">A family business that knows cars inside out</h2>
+      <p>APC Motor Group is a family-run business with over 31 years of experience in the automotive industry. Our goal is simple: professional service and support whether you're buying any make or model, new or used, or selling your old car.</p>
+      <p>Owner-operator Angelo spent 13 years in vehicle sales, including as General Sales Manager for a major brand, picking up national sales and customer satisfaction awards along the way. He's also a qualified motor mechanic and a registered repairer with the Motor Vehicle Industry Board.</p>
+      <div class="creds"><span>Qualified motor mechanic</span><span>National sales awards</span><span>MTA WA member</span><span>Licensed dealer DL 22855</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="finance" style="padding-top:0">
+  <div class="wrap">
+    <div class="fin reveal">
+      <div>
+        <p class="eyebrow" style="color:var(--brand-ink);opacity:.7">Vehicle finance</p>
+        <h2 class="display" style="margin-top:14px">Drive now. No deposit.</h2>
+        <p>Fast, hassle-free finance with fixed interest rates and repayments that suit you. It's an obligation-free enquiry.</p>
+        <a class="btn btn-dark" style="margin-top:26px" href="#enquire" data-tab="finance">Check what I can borrow</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>$0</b><span>Deposit needed</span></div>
+        <div class="stat"><b>Same day</b><span>Most approvals</span></div>
+        <div class="stat"><b>7 yrs</b><span>Max loan term</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="enquire" style="padding-top:0">
+  <div class="wrap enquiry">
+    <div class="side reveal">
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="display" style="margin-top:14px">Let's get you moving</h2>
+      <p>Pick what you need and we'll get back to you fast, usually the same day.</p>
+      <div class="contact-list">
+        <a href="tel:0438908560"><span class="i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span><span><small>Mobile</small>0438 908 560</span></a>
+        <a href="tel:0895281234"><span class="i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Office</small>(08) 9528 1234</span></a>
+        <div><span class="i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><span><small>Visits by appointment only</small>14 Hammond Road, Cockburn Central WA</span></div>
+      </div>
+    </div>
+    <div class="panel reveal">
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-t="find">Find a car</button>
+        <button role="tab" aria-selected="false" data-t="sell">Sell my car</button>
+        <button role="tab" aria-selected="false" data-t="finance">Finance</button>
+      </div>
+
+      <form class="f on" data-f="find" data-demo>
+        <p class="intro">Tell us about the car you're after and we'll find it. Quick, easy and hassle free.</p>
+        <div class="grid">
+          <label>Year<input name="year" inputmode="numeric" placeholder="2020+"></label>
+          <label>Make<input name="make" placeholder="Toyota"></label>
+          <label>Model<input name="model" placeholder="Hilux SR5"></label>
+          <label>Transmission<select><option>Either</option><option>Automatic</option><option>Manual</option></select></label>
+          <label>Fuel<select><option>Any</option><option>Diesel</option><option>Petrol (ULP)</option><option>Gas</option><option>Hybrid / EV</option></select></label>
+          <label>Max km<input inputmode="numeric" placeholder="80,000"></label>
+        </div>
+        <div class="grid two">
+          <label>Your budget ($)<input inputmode="numeric" placeholder="45,000"></label>
+          <label>Need finance?<select><option>Not sure</option><option>Yes</option><option>No</option></select></label>
+        </div>
+        <div class="grid">
+          <label>Name<input required autocomplete="name"></label>
+          <label>Phone<input required type="tel" autocomplete="tel"></label>
+          <label class="full">Email<input type="email" autocomplete="email"></label>
+        </div>
+        <label>Must-haves (colour, features, towbar…)<textarea placeholder="e.g. White, canopy, towbar, under 5 years old"></textarea></label>
+        <button class="btn btn-yellow" type="submit">Find my car</button>
+      </form>
+
+      <form class="f" data-f="sell" data-demo>
+        <p class="intro">Give us your car's details and we'll come back with the best price. We pick up from Joondalup to Mandurah.</p>
+        <div class="grid">
+          <label>Year<input inputmode="numeric" placeholder="2018"></label>
+          <label>Make<input placeholder="Ford"></label>
+          <label>Model<input placeholder="Ranger XLT"></label>
+          <label>Kilometres<input inputmode="numeric" placeholder="120,000"></label>
+          <label>Transmission<select><option>Automatic</option><option>Manual</option></select></label>
+          <label>Asking price ($)<input inputmode="numeric" placeholder="Optional"></label>
+        </div>
+        <div class="grid two">
+          <label>Still owe money on it?<select><option>No</option><option>Yes, need a payout quote</option></select></label>
+          <label>Trading in on another car?<select><option>No</option><option>Yes</option><option>Maybe</option></select></label>
+        </div>
+        <div class="grid">
+          <label>Name<input required autocomplete="name"></label>
+          <label>Phone<input required type="tel" autocomplete="tel"></label>
+          <label class="full">Suburb<input placeholder="For pick-up"></label>
+        </div>
+        <button class="btn btn-yellow" type="submit">Get my price</button>
+      </form>
+
+      <form class="f" data-f="finance" data-demo>
+        <p class="intro">Obligation-free. Our finance team will contact you as soon as possible.</p>
+        <div class="grid">
+          <label>Year<input inputmode="numeric"></label>
+          <label>Make<input></label>
+          <label>Model<input></label>
+        </div>
+        <div class="grid two">
+          <label>Amount to borrow ($)<input inputmode="numeric" placeholder="35,000"></label>
+          <label>Repayments<select><option>Fortnightly</option><option>Monthly</option></select></label>
+        </div>
+        <div class="grid">
+          <label>Name<input required autocomplete="name"></label>
+          <label>Phone<input required type="tel" autocomplete="tel"></label>
+          <label class="full">Email<input type="email" autocomplete="email"></label>
+        </div>
+        <label>Comments<textarea></textarea></label>
+        <p class="note">By submitting you agree to be contacted about vehicle finance. Finance is subject to lender approval.</p>
+        <button class="btn btn-yellow" type="submit">Request a finance call</button>
+      </form>
+
+      <div class="sent" role="status">
+        <div class="tick"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h3>Thanks, we're on it</h3>
+        <p>Angelo will be in touch shortly, usually the same day. Need it sooner? Call 0438 908 560.</p>
+        <button class="btn btn-dark" style="margin-top:22px" type="button" data-reset>Send another enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" style="padding:80px 0">
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:32px;align-items:end;flex-wrap:wrap">
+    <div class="reveal">
+      <p class="eyebrow">Where we work</p>
+      <h2 class="display" style="font-size:clamp(38px,5vw,64px);color:#fff;margin-top:14px">All of Perth,<br><span style="color:var(--brand);font-style:italic">Joondalup to Mandurah</span></h2>
+      <div class="area"><span>Joondalup</span><span>Wanneroo</span><span>Perth CBD</span><span>Fremantle</span><span>Cockburn</span><span>Armadale</span><span>Rockingham</span><span>Mandurah</span></div>
+    </div>
+    <a class="btn btn-yellow reveal" href="tel:0438908560">Call 0438 908 560</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="mark" href="#top" style="padding:0"><span class="big">APC</span><span class="small">Motor<br>Group</span></a>
+        <p style="margin-top:18px;max-width:360px">Family-run vehicle locator, wholesaler and finance broker. Over 31 years helping Perth buy and sell cars.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#enquire" data-tab="find">Car locator</a>
+        <a href="#enquire" data-tab="sell">Sell your car</a>
+        <a href="#enquire" data-tab="finance">Vehicle finance</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:0438908560">Mobile 0438 908 560</a>
+        <a href="tel:0895281234">Office (08) 9528 1234</a>
+        <span style="display:block;padding:4px 0">14 Hammond Road, Cockburn Central WA<br>By appointment only</span>
+        <a href="https://www.facebook.com/ApcMotorGroup">Facebook</a>
+      </div>
+    </div>
+    <div class="fine">
+      <span>© APC Motor Group 2026. Licensed motor vehicle dealer DL 22855.</span>
+      <span>Website concept preview</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-yellow" href="tel:0438908560">Call now</a>
+  <a class="btn btn-ghost" href="#enquire">Enquire</a>
+</div>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.tabs button');
+  var forms = document.querySelectorAll('form.f');
+  var sent = document.querySelector('.sent');
+  function show(t){
+    sent.classList.remove('on');
+    tabs.forEach(function(b){ b.setAttribute('aria-selected', b.dataset.t === t ? 'true' : 'false'); });
+    forms.forEach(function(f){ f.classList.toggle('on', f.dataset.f === t); });
+  }
+  tabs.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.t); }); });
+  document.querySelectorAll('[data-tab]').forEach(function(a){
+    a.addEventListener('click', function(){
+      show(a.dataset.tab);
+      if (a.hasAttribute('data-carry')) {
+        var q = document.querySelector('.quick');
+        var f = document.querySelector('form[data-f="find"]');
+        f.querySelector('[name="make"]').value = q.querySelector('[name="make"]').value;
+        f.querySelector('[name="model"]').value = q.querySelector('[name="model"]').value;
+      }
+    });
+  });
+  forms.forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      forms.forEach(function(x){ x.classList.remove('on'); });
+      sent.classList.add('on');
+    });
+  });
+  document.querySelector('[data-reset]').addEventListener('click', function(){
+    forms.forEach(function(f){ f.reset(); });
+    show('find');
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); e.target.classList.remove('pre'); io.unobserve(e.target); } });
+    }, {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(function(el){ var r=el.getBoundingClientRect(); if (r.top > innerHeight) { el.classList.add('pre'); io.observe(el); } });
+  }
+})();
+</script>
+</body>
+</html>
