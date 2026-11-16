@@ -408,3 +408,11 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
 .enq-sub{margin:32px 0 12px;font-size:18px;color:var(--ink-3)}
 
 .stock>*{min-width:0}
+.setup-h{font-size:16px;margin-bottom:10px}
+.setting-list{list-style:none;display:grid;gap:8px}
+.setting-list li{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:10px;background:var(--paper)}
+.setting-list .dot{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px;color:#fff}
+.setting-list .ok .dot{background:#1f7a3f}
+.setting-list .bad .dot{background:#b3261e}
+.setting-list code{font-size:13px;font-weight:700;word-break:break-all}
+.setting-list small{display:block;color:var(--ink-2);font-size:13px;margin-top:2px}
