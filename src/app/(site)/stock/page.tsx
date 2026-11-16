@@ -10,12 +10,13 @@ export default async function StockPage() {
   const cars = await listPublicCars();
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero photo-hero">
+        <img className="bg" src="/images/site/stock-hero.webp" alt="" />
         <div className="wrap">
           <p className="eyebrow" style={{ color: "var(--brand)" }}>{business.name}</p>
           <h1 className="display">{business.stockBrand}</h1>
           <p className="lede">
-            Performance, classic and everyday cars, hand-picked and ready to inspect by appointment at Cockburn Central.
+            Performance, classic and everyday cars, hand-picked and ready to inspect by appointment at our Perth warehouse.
             No-deposit finance and trade-ins on every car.
           </p>
         </div>
