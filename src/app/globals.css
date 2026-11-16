@@ -673,3 +673,16 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
 }
 body.menu-open .mbar{display:none!important}
 @media (max-width:760px){.mobile-menu nav a{font-size:26px;padding:15px 4px}}
+
+/* Real logo */
+:root{--brand:#fbe22e}
+.btn-yellow:hover{background:#ffec5c}
+.logo-img{display:block;width:auto;height:auto}
+.logo-header{height:52px}
+.logo-footer{height:78px}
+.mark{gap:0}
+.admin-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font:700 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase}
+.admin-logo img{height:34px;width:auto}
+.admin-logo span{padding-left:10px;border-left:1px solid var(--night-line);color:var(--night-ink-2)}
+.admin-card .admin-logo{justify-self:start;background:#211f20;border-radius:12px;padding:10px 14px}
+@media (max-width:760px){.logo-header{height:40px}.logo-footer{height:64px}}

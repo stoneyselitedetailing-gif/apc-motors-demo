@@ -10,7 +10,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   return (
     <div className="admin-auth">
       <div className="admin-card">
-        <p className="mark-dark"><span className="big">APC</span> Admin</p>
+        <p className="admin-logo"><img src="/brand/apc-logo-300.png" alt="APC Motor Group" /><span>Admin</span></p>
         <h1>Sign in</h1>
         {error === "no-database" && (
           <p className="form-error" role="alert">

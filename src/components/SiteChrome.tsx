@@ -3,16 +3,15 @@ import { business } from "@/config/business";
 import { PhoneIcon } from "@/components/Icons";
 import { MobileMenu } from "@/components/MobileMenu";
 
-export function Mark() {
+export function Mark({ size = "header" }: { size?: "header" | "footer" }) {
   return (
-    <>
-      <span className="big">APC</span>
-      <span className="small">
-        Motor
-        <br />
-        Group
-      </span>
-    </>
+    <img
+      className={`logo-img logo-${size}`}
+      src={size === "footer" ? "/brand/apc-logo-600.png" : "/brand/apc-logo-300.png"}
+      width={1402}
+      height={734}
+      alt="APC Motor Group"
+    />
   );
 }
 
@@ -55,8 +54,8 @@ export function SiteFooter() {
       <div className="wrap">
         <div className="cols">
           <div>
-            <Link className="mark" href="/" style={{ padding: 0 }}>
-              <Mark />
+            <Link className="mark" href="/" style={{ padding: 0 }} aria-label="APC Motor Group home">
+              <Mark size="footer" />
             </Link>
             <p style={{ marginTop: 18, maxWidth: 360 }}>
               Family-run vehicle locator, wholesaler and finance broker, trading as {business.stockBrand}. Over 31 years

@@ -15,7 +15,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
     <>
       <header className="admin-top">
         <div className="admin-wrap">
-          <Link href="/admin" className="mark-dark"><span className="big">APC</span> Admin</Link>
+          <Link href="/admin" className="admin-logo"><img src="/brand/apc-logo-300.png" alt="APC Motor Group" /><span>Admin</span></Link>
           <nav>
             <Link href="/admin">Stock</Link>
             <Link href="/admin/enquiries">
