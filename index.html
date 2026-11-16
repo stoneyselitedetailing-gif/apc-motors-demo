@@ -67,7 +67,8 @@ nav.links a:hover{color:var(--brand)}
   radial-gradient(900px 500px at 85% 10%, rgba(255,230,0,.16), transparent 60%),
   repeating-linear-gradient(115deg, transparent 0 46px, rgba(255,255,255,.025) 46px 47px)}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:88px 0 96px}
-.hero h1{font-size:clamp(44px,7.4vw,104px);color:#fff}
+.hero h1{font-size:clamp(44px,5vw,76px);color:#fff}
+section[id]{scroll-margin-top:84px}
 @media (min-width:600px){.hero h1 em{white-space:nowrap}}
 .hero .wrap>*{min-width:0}
 .hero h1 em{font-style:italic;color:var(--brand);font-stretch:100%}
@@ -217,6 +218,39 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
 .reveal{transition:transform .6s ease}
 .reveal.pre{transform:translateY(18px)}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* hero photo */
+.hero-shot{position:relative;display:block;border-radius:22px;overflow:hidden;border:1px solid var(--night-line);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);text-decoration:none}
+.hero-shot img{width:100%;height:auto;aspect-ratio:1251/747;object-fit:cover;transition:transform .8s ease}
+.hero-shot:hover img{transform:scale(1.03)}
+.hero-shot .tag{position:absolute;left:14px;bottom:14px;right:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:rgba(13,13,13,.86);backdrop-filter:blur(6px);color:#fff;border-radius:12px;padding:12px 14px;font:600 14px/1.3 var(--body)}
+.hero-shot .tag b{background:var(--brand);color:var(--brand-ink);border-radius:999px;padding:5px 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.hero .wrap{grid-template-columns:1.1fr .9fr}
+
+/* featured stock */
+.stock{display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:start}
+.gallery .main{border-radius:var(--radius);overflow:hidden;background:var(--night);aspect-ratio:16/10}
+.gallery .main img{width:100%;height:100%;object-fit:cover}
+.thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:8px}
+.thumbs button{border:2px solid transparent;border-radius:10px;overflow:hidden;padding:0;cursor:pointer;background:var(--night);aspect-ratio:4/3}
+.thumbs button img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .2s}
+.thumbs button:hover img,.thumbs button[aria-current="true"] img{opacity:1}
+.thumbs button[aria-current="true"]{border-color:var(--brand)}
+.thumbs button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.car{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:grid;gap:18px;position:sticky;top:96px}
+.car .badge{justify-self:start;background:var(--brand);color:var(--brand-ink);border-radius:999px;padding:6px 12px;font:800 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase}
+.car h3{font-family:var(--display);font-weight:900;font-stretch:80%;text-transform:uppercase;font-size:44px;line-height:.92}
+.car .price{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:24px}
+.car .price small{display:block;font:500 14px var(--body);color:var(--ink-3);margin-top:4px}
+.car dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;font-size:15px;border-block:1px solid var(--line);padding:16px 0}
+.car dt{color:var(--ink-3)}
+.car dd{font-weight:600}
+.car .btn{width:100%}
+.car .btn + .btn{margin-top:-8px}
+.btn-outline{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-outline:hover{background:var(--ink);color:var(--paper)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.stock{grid-template-columns:minmax(0,1fr)}.car{position:static}}
+@media (max-width:560px){.thumbs{grid-template-columns:repeat(3,minmax(0,1fr))}.car h3{font-size:38px}}
 </style>
 </head>
 <body>
@@ -230,6 +264,7 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
       <span class="small">Motor<br>Group</span>
     </a>
     <nav class="links" aria-label="Main">
+      <a href="#stock">In stock</a>
       <a href="#services">Services</a>
       <a href="#how">How it works</a>
       <a href="#about">About</a>
@@ -260,22 +295,10 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
         <span>MTA WA member</span>
       </div>
     </div>
-    <div class="hero-card reveal">
-      <div class="stamp">Free service</div>
-      <h2 class="display">What are you after?</h2>
-      <p>Tell us the car you want. We'll search our network and come back to you with options.</p>
-      <form class="quick" data-demo>
-        <div class="row">
-          <label>Make<input name="make" placeholder="e.g. Toyota" autocomplete="off"></label>
-          <label>Model<input name="model" placeholder="e.g. LandCruiser" autocomplete="off"></label>
-        </div>
-        <div class="row">
-          <label>Budget<select name="budget"><option>Under $20k</option><option>$20k – $40k</option><option selected>$40k – $70k</option><option>$70k – $100k</option><option>$100k+</option></select></label>
-          <label>Finance?<select name="fin"><option>Not sure</option><option>Yes</option><option>No</option></select></label>
-        </div>
-        <a class="btn btn-yellow" href="#enquire" data-tab="find" data-carry>Start my search →</a>
-      </form>
-    </div>
+    <a class="hero-shot" href="#stock">
+      <img src="images/hsv-coupe-front.webp" width="1251" height="747" alt="A gloss black HSV Coupe with grey alloy wheels, parked in a concrete showroom" fetchpriority="high">
+      <span class="tag"><b>In stock</b> HSV Coupe · see the car →</span>
+    </a>
   </div>
 </section>
 
@@ -285,6 +308,38 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
     <span>Car locating</span><span>We buy your car</span><span>No-deposit finance</span><span>Pick-up Joondalup to Mandurah</span><span>Trade-ins welcome</span><span>Any make · any model</span>
   </div>
 </div>
+
+<section id="stock">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <p class="eyebrow">Performance Vehicle Warehouse</p>
+        <h2 class="display" style="margin-top:14px">In stock now</h2>
+      </div>
+      <p>Hand-picked performance cars, ready to inspect by appointment. Don't see what you want? We'll find it.</p>
+    </div>
+    <div class="stock">
+      <div class="gallery reveal">
+        <div class="main"><img id="mainShot" src="images/hsv-coupe-front.webp" alt="The front three-quarter view of the black HSV Coupe, showing the chrome grille, headlights and red brake calipers" width="1251" height="747"></div>
+        <div class="thumbs"><button type="button" data-src="images/hsv-coupe-front.webp" data-alt="The front three-quarter view of the black HSV Coupe, showing the chrome grille, headlights and red brake calipers" aria-label="Show photo 1" aria-current="true"><img src="images/hsv-coupe-front-thumb.webp" alt="" loading="lazy"></button><button type="button" data-src="images/hsv-coupe-side.webp" data-alt="The side profile of the black HSV Coupe in the showroom" aria-label="Show photo 2"><img src="images/hsv-coupe-side-thumb.webp" alt="" loading="lazy"></button><button type="button" data-src="images/hsv-coupe-rear.webp" data-alt="The rear of the black HSV Coupe, showing the spoiler, round tail lights and twin exhausts" aria-label="Show photo 3"><img src="images/hsv-coupe-rear-thumb.webp" alt="" loading="lazy"></button><button type="button" data-src="images/hsv-coupe-seats.webp" data-alt="The tan leather front sports seats of the HSV Coupe, with embossed headrest logos" aria-label="Show photo 4"><img src="images/hsv-coupe-seats-thumb.webp" alt="" loading="lazy"></button><button type="button" data-src="images/hsv-coupe-interior.webp" data-alt="The HSV Coupe cabin: tan leather seats, black dashboard, white-faced gauges and automatic shifter" aria-label="Show photo 5"><img src="images/hsv-coupe-interior-thumb.webp" alt="" loading="lazy"></button><button type="button" data-src="images/hsv-coupe-door.webp" data-alt="The black leather driver door trim of the HSV Coupe, with the puddle lamp lit" aria-label="Show photo 6"><img src="images/hsv-coupe-door-thumb.webp" alt="" loading="lazy"></button></div>
+      </div>
+      <aside class="car reveal">
+        <span class="badge">Just arrived</span>
+        <h3>HSV Coupe</h3>
+        <div class="price">Price on application<small>Call for kilometres and full history</small></div>
+        <dl>
+          <dt>Body</dt><dd>2-door coupe</dd>
+          <dt>Colour</dt><dd>Black</dd>
+          <dt>Interior</dt><dd>Tan leather sports seats</dd>
+          <dt>Gearbox</dt><dd>Automatic</dd>
+          <dt>Finance</dt><dd>No deposit options available</dd>
+        </dl>
+        <a class="btn btn-yellow" href="#enquire" data-tab="find" data-car="HSV|Coupe">Enquire about this car</a>
+        <a class="btn btn-outline" href="#enquire" data-tab="finance" data-car="HSV|Coupe">Finance this car</a>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <section id="services">
   <div class="wrap">
@@ -558,11 +613,11 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
   document.querySelectorAll('[data-tab]').forEach(function(a){
     a.addEventListener('click', function(){
       show(a.dataset.tab);
-      if (a.hasAttribute('data-carry')) {
-        var q = document.querySelector('.quick');
-        var f = document.querySelector('form[data-f="find"]');
-        f.querySelector('[name="make"]').value = q.querySelector('[name="make"]').value;
-        f.querySelector('[name="model"]').value = q.querySelector('[name="model"]').value;
+      if (a.dataset.car) {
+        var mm = a.dataset.car.split('|');
+        var f = document.querySelector('form[data-f="' + a.dataset.tab + '"]');
+        var ins = f.querySelectorAll('.grid')[0].querySelectorAll('input');
+        ins[1].value = mm[0]; ins[2].value = mm[1];
       }
     });
   });
@@ -571,6 +626,14 @@ footer .fine{margin-top:56px;padding-top:24px;border-top:1px solid var(--night-l
       e.preventDefault();
       forms.forEach(function(x){ x.classList.remove('on'); });
       sent.classList.add('on');
+    });
+  });
+  var main = document.getElementById('mainShot');
+  document.querySelectorAll('.thumbs button').forEach(function(b){
+    b.addEventListener('click', function(){
+      main.src = b.dataset.src; main.alt = b.dataset.alt;
+      document.querySelectorAll('.thumbs button').forEach(function(x){ x.removeAttribute('aria-current'); });
+      b.setAttribute('aria-current', 'true');
     });
   });
   document.querySelector('[data-reset]').addEventListener('click', function(){
