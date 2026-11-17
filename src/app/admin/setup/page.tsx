@@ -42,10 +42,14 @@ export default function SetupPage() {
           </dl>
         </div>
         <ol className="steps-list">
-          <li>Create a project at supabase.com.</li>
-          <li>In Supabase, open <b>SQL Editor</b>, paste in <code>supabase/migrations/20261116000000_stock_and_enquiries.sql</code> and run it.</li>
-          <li>In <b>Authentication → Users</b>, add the owner&apos;s email and a password. Then add that email to the <code>admin_users</code> table.</li>
-          <li>In Vercel, add <code>NEXT_PUBLIC_SUPABASE_URL</code>, <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> and <code>SUPABASE_SERVICE_ROLE_KEY</code> from Supabase → Project Settings → API, then redeploy.</li>
+          <li>In Vercel, open this project (<b>{info.project}</b>) → <b>Settings → Environment Variables</b>.</li>
+          <li>
+            Add <code>NEXT_PUBLIC_SUPABASE_URL</code> (the Project URL), <code>NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY</code> (the
+            publishable key) and <code>SUPABASE_SECRET_KEY</code> (the secret key) from Supabase → Project Settings → API Keys,
+            each with <b>Production</b> ticked.
+          </li>
+          <li>Go to <b>Deployments</b>, click <b>⋯</b> on the top row, then <b>Redeploy</b>. Keys only reach deployments made after they were added.</li>
+          <li>First time only: in Supabase → SQL Editor, run <code>supabase/migrations/20261116000000_stock_and_enquiries.sql</code>, add a user under Authentication → Users and add its email to <code>admin_users</code>.</li>
         </ol>
         <Link className="btn btn-dark" href="/">Back to the website</Link>
       </div>
