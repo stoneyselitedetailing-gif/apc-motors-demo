@@ -11,4 +11,15 @@ export const business = {
   dealerLicence: "DL 22855",
   facebook: "https://www.facebook.com/ApcMotorGroup",
   years: "31+",
+  // What Google Maps searches for, for the map and "Get directions".
+  mapQuery: "14 Hammond Road, Cockburn Central WA 6164",
+  // The business's Google profile. Paste the "Share" link from Google Maps here
+  // to point the review buttons straight at it.
+  googleProfileUrl: "https://www.google.com/search?q=Performance+Vehicle+Warehouse+APC+Motor+Group+Perth+reviews",
 };
+
+export type Review = { name: string; rating: number; text: string; when?: string };
+
+// Hand-picked Google reviews, copied word for word from the business's Google
+// profile. Only add real reviews. Used when live Google reviews aren't set up.
+export const reviews: Review[] = [];

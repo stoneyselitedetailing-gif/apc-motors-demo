@@ -6,6 +6,8 @@ import { EnquiryPanel } from "@/components/EnquiryPanel";
 import { HeroSlideshow, type Slide } from "@/components/HeroSlideshow";
 import { MobileIcon, PhoneIcon, PinIcon } from "@/components/Icons";
 import { MtaLogo, WestcorpLogo } from "@/components/SiteChrome";
+import { FindUs, Reviews } from "@/components/ReviewsAndMap";
+import { getReviews } from "@/lib/reviews";
 
 export const revalidate = 60;
 
@@ -29,7 +31,7 @@ const DETAILS = [
 ];
 
 export default async function Home() {
-  const cars = await listPublicCars();
+  const [cars, reviewData] = await Promise.all([listPublicCars(), getReviews()]);
   const forSale = cars.filter((c) => c.status !== "sold");
   const listed = new Set(forSale.map((c) => c.slug));
   const slides: Slide[] = SLIDES.map(({ slug, ...s }) => ({ ...s, href: listed.has(slug) ? `/stock/${slug}` : undefined }));
@@ -240,6 +242,8 @@ export default async function Home() {
         </div>
       </section>
 
+      <Reviews data={reviewData} />
+
       <section id="enquire" style={{ paddingTop: 0 }}>
         <div className="wrap enquiry">
           <div className="side">
@@ -273,6 +277,7 @@ export default async function Home() {
           <a className="btn btn-yellow" href={`tel:${business.mobileTel}`}>Call {business.mobile}</a>
         </div>
       </section>
+      <FindUs />
     </>
   );
 }
