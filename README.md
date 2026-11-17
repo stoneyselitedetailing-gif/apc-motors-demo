@@ -45,3 +45,13 @@ npm run dev
 Both Vercel and Supabase let you transfer a project to another account (Vercel: project **Settings → General → Transfer**; Supabase: **Project Settings → General → Transfer project**). Point the owner's domain at Vercel under **Settings → Domains**.
 
 Before launch: remove the concept banner (`DemoStrip` in `src/components/SiteChrome.tsx`) and the `noindex` settings in `src/app/layout.tsx`, `next.config.ts` and `public/robots.txt`.
+
+## Adding stock
+
+The easiest way is the admin area: `/admin` → **+ Add a car**, with photos uploaded from a phone.
+
+Cars supplied as listings are also kept as SQL in `supabase/migrations/*_add_*.sql`. To add all of them at once, paste `supabase/add-all-stock.sql` into Supabase → SQL Editor and click **Run**. It is safe to run more than once.
+
+## Deploying
+
+Vercel builds every push to `main`. On Vercel's Hobby plan with a private repository, it only builds commits authored by the account owner; if a deployment shows as blocked, go to Deployments → **Create Deployment**, enter `main`, and deploy.
