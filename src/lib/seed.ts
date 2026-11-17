@@ -96,3 +96,40 @@ seedCars.unshift(
     photos: five("vf-ssv-redline"), created_at: "2026-11-17T01:00:00Z",
   },
 );
+
+const pics = (dir: string, n: number) => Array.from({ length: n }, (_, i) => `/images/${dir}/0${i + 1}.webp`);
+
+seedCars.push(
+  {
+    id: "seed-ve-hdt", slug: "2009-holden-commodore-ve-ss-hdt", status: "available", featured: false, year: 2009, make: "Holden",
+    model: "Commodore", variant: "VE SS HDT Improved", price: 44888, km: 191865, body: "Sedan", transmission: null, fuel: "Petrol",
+    engine: "6.0L V8", colour: "White", interior: "Black cloth",
+    description: "A genuine two-owner VE SS, HDT Improved build #0117 (certified 09/2020), with new paint in 2020 and a file of receipts.",
+    features: ["HDT Improved, build #0117", "Genuine 2 owners", "Performance exhaust", "Pedders adjustable suspension"],
+    photos: pics("ve-ss-hdt", 5), created_at: "2026-11-17T09:00:00Z",
+  },
+  {
+    id: "seed-vf-hdt", slug: "2014-holden-commodore-vf-ss-hdt", status: "available", featured: false, year: 2014, make: "Holden",
+    model: "Commodore", variant: "VF SS HDT Improved", price: 63888, km: 62565, body: "Sedan", transmission: null, fuel: "Petrol",
+    engine: "6.0L V8", colour: "Blue", interior: "Black leather and suede",
+    description: "A VF SS, HDT Improved build #0144 (certified 06/2022), with only 62,565 km, log books and a spare key.",
+    features: ["HDT Improved, build #0144", "Only 62,565 km", "OTR intake and tune", "Pedders adjustable suspension"],
+    photos: pics("vf-ss-hdt", 4), created_at: "2026-11-17T08:00:00Z",
+  },
+  {
+    id: "seed-torana", slug: "1974-holden-torana-lh-slr-5000", status: "available", featured: true, year: 1974, make: "Holden",
+    model: "Torana", variant: "LH SL/R 5000", price: 94888, km: null, body: "Sedan", transmission: "Manual", fuel: "Petrol",
+    engine: "5.0L V8 (L31)", colour: "Absinth Yellow", interior: "Black cloth",
+    description: "An October 1974 LH Torana SL/R 5000, numbers matching on all three tags, with its Holden Historical Services production report.",
+    features: ["5.0L V8 (L31)", "4-speed manual (M21)", "Production report", "New clutch"],
+    photos: pics("torana-slr5000", 4), created_at: "2026-11-17T07:00:00Z",
+  },
+  {
+    id: "seed-customline", slug: "1957-ford-customline-v8", status: "available", featured: false, year: 1957, make: "Ford",
+    model: "Customline", variant: "V8 Sedan", price: 79888, km: null, body: "Sedan", transmission: "Automatic", fuel: "Petrol",
+    engine: "272 Y-block V8", colour: "Blue and white two-tone", interior: "Blue and tan vinyl bench seats",
+    description: "A very rare Australian-delivered, numbers-matching 1957 Customline V8, ready for Sunday cruises and Show 'n' Shines.",
+    features: ["Australian delivered", "Numbers matching", "272 Y-block V8", "Full WA registration"],
+    photos: pics("ford-customline-57", 4), created_at: "2026-11-17T06:00:00Z",
+  },
+);
