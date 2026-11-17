@@ -692,3 +692,34 @@ body.menu-open .mbar{display:none!important}
 .gallery .main .backdrop{position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);object-fit:cover;filter:blur(28px) brightness(.55) saturate(1.1)}
 .gallery .main .photo{position:relative;width:100%;height:100%;object-fit:contain}
 .gallery .main .nav,.gallery .main .count{z-index:2}
+
+/* ================= Hero v3: framed slideshow (photos never stretched past their size) ================= */
+.hero3{position:relative;background:#050505;color:#fff;overflow:hidden;padding:72px 0 40px;isolation:isolate}
+.hero3::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(700px 420px at 78% 30%,rgba(251,226,46,.16),transparent 65%),
+  radial-gradient(500px 300px at 10% 90%,rgba(251,226,46,.06),transparent 70%),
+  repeating-linear-gradient(115deg,transparent 0 46px,rgba(255,255,255,.025) 46px 47px)}
+.hero3-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero3-copy>*{min-width:0}
+.hero3 h1{font-size:clamp(46px,6vw,92px);margin-top:18px}
+.hero3 h1 em{font-style:italic;color:var(--brand);font-stretch:100%;white-space:nowrap}
+.hero3 .lede{margin-top:22px;max-width:520px;font-size:clamp(16px,1.6vw,19px);color:#cfcec7}
+.hero3 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-frame{position:relative;width:100%;max-width:580px;justify-self:end;aspect-ratio:16/10.5;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 50px 90px -40px rgba(0,0,0,.9),0 0 0 8px rgba(255,255,255,.03)}
+.hero-frame .hero-slides img{transform:scale(1.03)}
+.hero-frame .hero-slides img.on{transform:scale(1)}
+.hero-frame .hero-shade{background:linear-gradient(0deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,0) 40%)!important}
+.hero-frame .hero-caption{top:auto;bottom:16px;left:16px;right:16px;align-items:flex-start;flex-direction:column-reverse}
+.hero3 .hero-stats{margin-top:56px;margin-bottom:0}
+@media (max-width:900px){
+  .hero3{padding:28px 0 32px}
+  .hero3-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .hero-frame{order:-1;max-width:none;justify-self:stretch;border-radius:16px}
+  .hero3 h1{font-size:clamp(42px,12vw,64px);margin-top:12px}
+  .hero3 h1 em{white-space:normal}
+  .hero3 .ctas .btn{flex:1 1 auto}
+  .hero3 .ctas .btn-yellow{flex-basis:100%}
+  .hero3 .hero-stats{margin-top:28px}
+}
+.hero-frame .hero-slides{inset:0!important;height:auto!important;bottom:0!important}
+.hero-frame .hero-slides img{object-position:50% 55%!important}

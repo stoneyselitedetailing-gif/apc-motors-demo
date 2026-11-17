@@ -37,27 +37,31 @@ export default async function Home() {
 
   return (
     <>
-      <section className="hero2">
-        <HeroSlideshow slides={slides} />
-        <div className="wrap hero2-inner">
-          <p className="eyebrow hero-eyebrow">
-            <span className="pip" /> {business.stockBrand}<span className="where"> · Perth WA</span>
-          </p>
-          <h1 className="display">
-            We find it.
-            <br />
-            We sell it.
-            <br />
-            <em>We finance it.</em>
-          </h1>
-          <p className="lede">
-            Hand-picked performance, classic and prestige cars, plus a locating service for anything else you&apos;re after.
-            Family run, with over 31 years in the trade.
-          </p>
-          <div className="ctas">
-            <Link className="btn btn-yellow" href="/stock">Browse the warehouse</Link>
-            <a className="btn btn-ghost" href="#enquire-find">Find me a car</a>
-            <a className="btn btn-ghost" href="#enquire-sell">Sell my car</a>
+      <section className="hero3">
+        <div className="wrap hero3-grid">
+          <div className="hero3-copy">
+            <p className="eyebrow hero-eyebrow">
+              <span className="pip" /> {business.stockBrand}<span className="where"> · Perth WA</span>
+            </p>
+            <h1 className="display">
+              We find it.
+              <br />
+              We sell it.
+              <br />
+              <em>We finance it.</em>
+            </h1>
+            <p className="lede">
+              Hand-picked performance, classic and prestige cars, plus a locating service for anything else you&apos;re after.
+              Family run, with over 31 years in the trade.
+            </p>
+            <div className="ctas">
+              <Link className="btn btn-yellow" href="/stock">Browse the warehouse</Link>
+              <a className="btn btn-ghost" href="#enquire-find">Find me a car</a>
+              <a className="btn btn-ghost" href="#enquire-sell">Sell my car</a>
+            </div>
+          </div>
+          <div className="hero-frame">
+            <HeroSlideshow slides={slides} />
           </div>
         </div>
         <div className="wrap hero-stats">
