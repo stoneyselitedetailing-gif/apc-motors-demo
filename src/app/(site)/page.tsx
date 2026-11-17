@@ -22,12 +22,12 @@ const SLIDES: (Slide & { slug: string })[] = [
 ];
 
 const DETAILS = [
-  { src: "/images/site/detail-engine.webp", label: "351 High Performance V8", car: "Ford Falcon XW GT" },
-  { src: "/images/site/detail-x1-seats.webp", label: "M sport leather", car: "BMW X1 M35i" },
-  { src: "/images/site/detail-wheel.webp", label: "Red-line tyres", car: "Ford Falcon XW GT" },
-  { src: "/images/site/detail-camaro-cabin.webp", label: "Show-winning cabin", car: "1968 Camaro SS" },
-  { src: "/images/site/detail-gt-dash.webp", label: "Original woodgrain dash", car: "Ford Falcon XW GT" },
-  { src: "/images/site/detail-ssv-door.webp", label: "Redline trim", car: "Holden SS V Redline" },
+  { src: "/images/site/detail-engine.webp", label: "351 High Performance V8", car: "Ford Falcon XW GT", slug: "ford-falcon-xw-gt" },
+  { src: "/images/site/detail-x1-seats.webp", label: "M sport leather", car: "BMW X1 M35i", slug: "2025-bmw-x1-m35i-xdrive" },
+  { src: "/images/site/detail-wheel.webp", label: "Red-line tyres", car: "Ford Falcon XW GT", slug: "ford-falcon-xw-gt" },
+  { src: "/images/site/detail-camaro-cabin.webp", label: "Show-winning cabin", car: "1968 Camaro SS", slug: "1968-chevrolet-camaro-ss" },
+  { src: "/images/site/detail-gt-dash.webp", label: "Original woodgrain dash", car: "Ford Falcon XW GT", slug: "ford-falcon-xw-gt" },
+  { src: "/images/site/detail-ssv-door.webp", label: "Redline trim", car: "Holden SS V Redline", slug: "2017-holden-commodore-ssv-redline" },
 ];
 
 export default async function Home() {
@@ -112,10 +112,12 @@ export default async function Home() {
         </div>
         <div className="detail-strip">
           {DETAILS.map((d) => (
-            <figure key={d.src}>
-              <img src={d.src} alt={`${d.label}, ${d.car}`} loading="lazy" />
-              <figcaption><b>{d.label}</b><span>{d.car}</span></figcaption>
-            </figure>
+            <Link key={d.src} href={listed.has(d.slug) ? `/stock/${d.slug}` : "/stock"} className="detail-card">
+              <figure>
+                <img src={d.src} alt={`${d.label}, ${d.car}`} loading="lazy" />
+                <figcaption><b>{d.label}</b><span>{d.car} <i aria-hidden="true">→</i></span></figcaption>
+              </figure>
+            </Link>
           ))}
         </div>
       </section>
@@ -131,7 +133,7 @@ export default async function Home() {
           </div>
           <div className="services photo-services">
             <article className="svc">
-              <div className="svc-img"><img src="/images/site/svc-locate.webp" alt="" loading="lazy" /><span className="num">01</span></div>
+              <div className="svc-img"><img src="/images/site/svc-locate.webp" alt="" loading="lazy" /></div>
               <div className="svc-body">
                 <h3>Car locator</h3>
                 <p>Tell us the year, make, model and budget. We search our dealer and wholesale network and come back with options.</p>
@@ -140,7 +142,7 @@ export default async function Home() {
               </div>
             </article>
             <article className="svc">
-              <div className="svc-img"><img src="/images/site/svc-sell.webp" alt="" loading="lazy" /><span className="num">02</span></div>
+              <div className="svc-img"><img src="/images/site/svc-sell.webp" alt="" loading="lazy" /></div>
               <div className="svc-body">
                 <h3>Sell your car</h3>
                 <p>Selling online can take months. We put your car in front of a range of buyers and can sell it in days.</p>
@@ -149,7 +151,7 @@ export default async function Home() {
               </div>
             </article>
             <article className="svc">
-              <div className="svc-img"><img src="/images/site/svc-finance.webp" alt="" loading="lazy" /><span className="num">03</span></div>
+              <div className="svc-img"><img src="/images/site/svc-finance.webp" alt="" loading="lazy" /></div>
               <div className="svc-body">
                 <h3>Vehicle finance</h3>
                 <p>Fast, no-deposit finance with most loans approved the same day. Fixed rates make budgeting easy.</p>

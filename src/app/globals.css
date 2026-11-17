@@ -753,3 +753,10 @@ body.menu-open .mbar{display:none!important}
 .map-frame iframe{width:100%;height:100%;border:0;display:block}
 @media (max-width:900px){.find-grid{grid-template-columns:minmax(0,1fr);gap:24px}.map-frame{aspect-ratio:1/1}}
 @media (max-width:760px){.review{padding:18px}.g-summary{width:100%}}
+.detail-card{flex:0 0 clamp(240px,28vw,360px);scroll-snap-align:start;text-decoration:none;color:inherit;border-radius:16px;outline-offset:3px}
+.detail-card figure{flex:none;width:100%;margin:0;height:100%}
+.detail-card:hover figure img,.detail-card:focus-visible figure img{transform:scale(1.05)}
+.detail-card:focus-visible{outline:2px solid var(--brand)}
+.detail-strip span i{font-style:normal;display:inline-block;transition:transform .2s}
+.detail-card:hover span i{transform:translateX(4px)}
+@media (max-width:760px){.detail-card{flex-basis:62vw;border-radius:12px}}
