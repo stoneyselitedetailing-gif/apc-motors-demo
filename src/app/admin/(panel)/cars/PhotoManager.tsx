@@ -5,19 +5,19 @@ import { savePhotoOrder, uploadPhoto } from "../actions";
 
 type Photo = { path: string; url: string };
 
-// Shrinks a photo to at most 2000px wide/high and converts it to WebP, so
+// Shrinks a photo to at most 2400px wide/high and converts it to WebP, so
 // big phone photos upload quickly and load fast on the site.
 async function shrink(file: File): Promise<File> {
   try {
     const bmp = await createImageBitmap(file, { imageOrientation: "from-image" });
-    const scale = Math.min(1, 2000 / Math.max(bmp.width, bmp.height));
+    const scale = Math.min(1, 2400 / Math.max(bmp.width, bmp.height));
     const canvas = document.createElement("canvas");
     canvas.width = Math.round(bmp.width * scale);
     canvas.height = Math.round(bmp.height * scale);
     canvas.getContext("2d")!.drawImage(bmp, 0, 0, canvas.width, canvas.height);
-    const blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/webp", 0.82));
+    const blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/webp", 0.9));
     if (blob && blob.type === "image/webp") return new File([blob], file.name.replace(/\.\w+$/, "") + ".webp", { type: "image/webp" });
-    const jpg = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", 0.85));
+    const jpg = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", 0.9));
     if (jpg) return new File([jpg], file.name.replace(/\.\w+$/, "") + ".jpg", { type: "image/jpeg" });
   } catch {
     // Fall through and send the original.

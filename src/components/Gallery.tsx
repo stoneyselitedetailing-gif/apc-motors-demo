@@ -9,7 +9,8 @@ export function Gallery({ photos, title }: { photos: string[]; title: string }) 
   return (
     <div className="gallery">
       <div className="main">
-        <img src={photos[i]} alt={`${title}, photo ${i + 1} of ${photos.length}`} />
+        <img className="backdrop" src={photos[i]} alt="" aria-hidden="true" />
+        <img className="photo" src={photos[i]} alt={`${title}, photo ${i + 1} of ${photos.length}`} />
         {photos.length > 1 && (
           <>
             <button type="button" className="nav prev" aria-label="Previous photo" onClick={() => go(i - 1)}>‹</button>
