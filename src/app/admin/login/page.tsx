@@ -4,9 +4,10 @@ import { LoginForm } from "./LoginForm";
 
 export const dynamic = "force-dynamic";
 
-export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; email?: string }> }) {
   if (!isSupabaseConfigured()) redirect("/admin/setup");
-  const { error } = await searchParams;
+  const { error, email } = await searchParams;
+  const who = (email ?? "").toLowerCase().replace(/[^a-z0-9@._+-]/g, "") || "their email in lower case";
   return (
     <div className="admin-auth">
       <div className="admin-card">
@@ -19,7 +20,10 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           </p>
         )}
         {error === "not-authorised" && (
-          <p className="form-error" role="alert">That account isn&apos;t set up as an admin yet. In Supabase → SQL Editor, run: insert into public.admin_users (email) values (&apos;your email in lower case&apos;);</p>
+          <p className="form-error" role="alert">
+            The password was right, but {email ? <b>{who}</b> : "that account"} isn&apos;t on the admin list yet. The owner adds it
+            in Supabase → SQL Editor by running: <code>insert into public.admin_users (email) values (&apos;{who}&apos;);</code>
+          </p>
         )}
         <LoginForm />
       </div>

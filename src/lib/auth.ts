@@ -15,7 +15,7 @@ export async function requireAdmin() {
     redirect("/admin/login?error=no-database");
   if (error || isAdmin !== true) {
     await supabase.auth.signOut();
-    redirect("/admin/login?error=not-authorised");
+    redirect(`/admin/login?error=not-authorised&email=${encodeURIComponent(data.user.email ?? "")}`);
   }
   return { user: data.user };
 }
